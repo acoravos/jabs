@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>Welcome to JABS!</h1>
+
+<% if session[:current_username] == nil %>
+  This shouldn't happen
+  <% else %>
+
+  <i>Hello, <%= session[:current_username] %></i>
+  This is the profile page of <%= session[:desired_profile] %>.
+<% end %>
+
+
+
+
+</div>

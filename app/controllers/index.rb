@@ -51,13 +51,18 @@ end
 
 post '/search' do
   @search = User.find_by(username: params[:desired_user])
+  p session[:desired_profile] = @search.username
     if @search == nil
       redirect '/user_not_found'
     else
-      redirect '/'
+      redirect "/user/#{@search.id}"
     end
 end
 
 get '/user_not_found' do
   erb :user_not_found
+end
+
+get '/user/:id' do
+  erb :profile
 end
