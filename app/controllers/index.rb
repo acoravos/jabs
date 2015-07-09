@@ -3,7 +3,7 @@ get '/' do
   erb :index
 end
 
-get '/user' do
+get '/users' do
 
   erb :users
 end
@@ -35,5 +35,6 @@ post '/signup' do
   session[:current_user_id] = @user.id
   session[:current_username] = @user.username
   redirect '/'
+  #if @user.save : redirect '/404'
 end
 

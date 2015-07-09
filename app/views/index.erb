@@ -1,15 +1,35 @@
 <div class="container">
   <h1>Welcome to JABS!</h1>
 
-  <% if session[:current_username] %>
-    <i>Hello, <%= session[:current_username] %></i>
-  </br> </br>
-  <% end %>
-
+<% if session[:current_username] == nil %>
   <form id="login" action="/login" method="POST">
     Username: <input type="text" name="username"></br>
     Password: <input type="password" name="password"></br>
     <input type="submit" value="Login">
   </form>
+
+  </br> </br>
+  <div>
+    <a href="/signup">Sign Up</a>
+  </div>
+  <% else %>
+
+  <i>Hello, <%= session[:current_username] %></i>
+  <!-- See all users, search for users, see my profile, logout.  -->
+  </br> </br>
+  <a href="/users">See all profiles</a> </br> </br>
+
+  <form id="search" action="/search" method="POST">
+   Search for a user:
+   <input type="text" name="desired_user">
+   <input type="submit" value="Search">
+   </form>
+
+   <!-- <a href="/users">See all profiles</a> </br> </br> -->
+
+<% end %>
+
+
+
 
 </div>
