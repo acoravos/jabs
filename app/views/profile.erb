@@ -1,0 +1,19 @@
+<div class="div-h1">
+  <h1>Welcome to JABS!</h1>
+</div>
+
+<div class="div-content">
+  <% if session[:current_username] == nil %>
+    This shouldn't happen
+    <% else %>
+
+    <i>Hello, <%= session[:current_username] %></i>
+    This is the profile page of <%= session[:desired_profile] %>.
+  <% end %>
+</div>
+
+<div class="div-home">
+  <a href="/users">back</a>
+</div>
+
+

@@ -1,23 +1,46 @@
-<div class="container">
-  <h1>Welcome to Sinatra!</h1>
-  <p>Hello, world!</p>
-
-  <table>
-    <tr>
-      <th>File Description</th>
-      <th>File Location</th>
-    </tr>
-    <tr>
-      <td>This view file</td>
-      <td><code><%= __FILE__.gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-    <tr>
-      <td>The layout file</td>
-      <td><code><%= File.expand_path('../layout.erb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-    <tr>
-      <td>The current controller</td>
-      <td><code><%= File.expand_path('../../controllers/index.rb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-  </table>
+<div class="div-h1">
+  <h1>Welcome to JABS!</h1>
 </div>
+
+
+<% if session[:current_username] == nil %>
+  <div class="content">
+    <form id="login" action="/login" method="POST">
+      Username: <input type="text" name="username"></br>
+      Password: <input type="password" name="password"></br>
+      <input type="submit" value="Login">
+    </form>
+  </div>
+
+  <div class="div-signup">
+    <a href="/signup">Sign Up</a>
+  </div>
+
+  <% else %>
+  <div class="div-h2">
+    <i>Hello, <%= session[:current_username] %></i>
+    <!-- See all users, search for users, see my profile, logout.  -->
+  </div>
+
+<div class="content">
+  <form id="search" action="/search" method="POST">
+     Search for a user:
+     <input type="text" name="desired_user">
+     <input type="submit" value="Search">
+  </form>
+</div>
+
+<div class="div-profile-button">
+   <a href="/users">See all profiles</a> </br> </br>
+</div>
+
+<div class="div-my-profile">
+   <a href="/user/<%=session[:current_user_id]%>">See my profile</a> </br> </br>
+</div>
+
+<div class="div-logout">
+    <a href="/logout">Log out</a> </br> </br>
+</div>
+
+<% end %>
+
