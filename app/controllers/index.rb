@@ -47,3 +47,17 @@ post '/signup' do
   #if @user.save : redirect '/404'
 end
 
+#--------------------search--------------------------
+
+post '/search' do
+  @search = User.find_by(username: params[:desired_user])
+    if @search == nil
+      redirect '/user_not_found'
+    else
+      redirect '/'
+    end
+end
+
+get '/user_not_found' do
+  erb :user_not_found
+end
