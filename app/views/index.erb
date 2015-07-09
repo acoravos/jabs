@@ -1,37 +1,46 @@
-<div class="container">
+<div class="div-h1">
   <h1>Welcome to JABS!</h1>
+</div>
+
 
 <% if session[:current_username] == nil %>
-  <form id="login" action="/login" method="POST">
-    Username: <input type="text" name="username"></br>
-    Password: <input type="password" name="password"></br>
-    <input type="submit" value="Login">
-  </form>
+  <div class="content">
+    <form id="login" action="/login" method="POST">
+      Username: <input type="text" name="username"></br>
+      Password: <input type="password" name="password"></br>
+      <input type="submit" value="Login">
+    </form>
+  </div>
 
-  </br> </br>
-  <div>
+  <div class="div-signup">
     <a href="/signup">Sign Up</a>
   </div>
+
   <% else %>
+  <div class="div-h2">
+    <i>Hello, <%= session[:current_username] %></i>
+    <!-- See all users, search for users, see my profile, logout.  -->
+  </div>
 
-  <i>Hello, <%= session[:current_username] %></i>
-  <!-- See all users, search for users, see my profile, logout.  -->
-  </br> </br>
-  <a href="/users">See all profiles</a> </br> </br>
-
+<div class="content">
   <form id="search" action="/search" method="POST">
-   Search for a user:
-   <input type="text" name="desired_user">
-   <input type="submit" value="Search">
-   </form>
+     Search for a user:
+     <input type="text" name="desired_user">
+     <input type="submit" value="Search">
+  </form>
+</div>
 
-   <a href="/user/#{session[user_id]}">See my profile</a> </br> </br>
+<div class="div-profile-button">
+   <a href="/users">See all profiles</a> </br> </br>
+</div>
 
+<div class="div-my-profile">
+   <a href="/user/<%=session[:current_user_id]%>">See my profile</a> </br> </br>
+</div>
+
+<div class="div-logout">
     <a href="/logout">Log out</a> </br> </br>
+</div>
 
 <% end %>
 
-
-
-
-</div>

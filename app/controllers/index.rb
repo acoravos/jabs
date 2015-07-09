@@ -8,11 +8,6 @@ get '/users' do
   erb :users
 end
 
-get '/user/:id' do
-
-  erb :profile
-end
-
 #--------------------login/logout--------------------
 post '/login' do
   @user = User.find_by(username: params[:username])
@@ -51,7 +46,7 @@ end
 
 post '/search' do
   @search = User.find_by(username: params[:desired_user])
-  p session[:desired_profile] = @search.username
+  session[:desired_profile] = @search.username
     if @search == nil
       redirect '/user_not_found'
     else
@@ -63,6 +58,9 @@ get '/user_not_found' do
   erb :user_not_found
 end
 
+#--------------------profile------------------------
 get '/user/:id' do
+  @desired_user = User.find(params[:id])
+  session[:desired_profile] = @desired_user.username
   erb :profile
 end
