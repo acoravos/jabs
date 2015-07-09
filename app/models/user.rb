@@ -4,6 +4,13 @@ class User < ActiveRecord::Base
   # users.password_hash in the database is a :string
   include BCrypt
 
+  #original user-tweet relationship
+  has_many :tweets
+
+  #retweet join table
+  has_many :retweets
+  has_many :tweets, through: :retweets
+
 
   has_many :leaders, foreign_key: "follower_id", class_name: "Following"
   has_many :leads, through: :leaders
