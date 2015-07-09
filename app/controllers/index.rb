@@ -4,7 +4,7 @@ get '/' do
 end
 
 get '/users' do
-
+  @users = User.all
   erb :users
 end
 
@@ -13,6 +13,7 @@ get '/user/:id' do
   erb :profile
 end
 
+#--------------------login/logout--------------------
 post '/login' do
   @user = User.find_by(username: params[:username])
 
@@ -24,6 +25,14 @@ post '/login' do
   end
 end
 
+get '/logout' do
+    session[:current_user_id] = nil
+    session[:current_username] = nil
+    redirect '/'
+end
+
+
+#--------------------signup--------------------------
 get '/signup' do
   erb :signup
 end
