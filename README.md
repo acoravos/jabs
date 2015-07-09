@@ -1,4 +1,4 @@
-# jabs
+# JABS
 DBC Bumblebees creating a jabberish twitter.
 
 ## Learning Competencies
