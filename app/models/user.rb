@@ -1,8 +1,11 @@
 require 'bcrypt'
+require 'Gravtastic'
 
 class User < ActiveRecord::Base
   # users.password_hash in the database is a :string
   include BCrypt
+  include Gravtastic
+  gravtastic
 
   #original user-tweet relationship
   has_many :tweets

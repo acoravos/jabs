@@ -4,7 +4,7 @@
 
   <ul>
     <% Retweet.where(user_id: "#{current_user.id}").each do |retweet| %>
-      <li><%= Tweet.find(retweet.tweet_id).post %> <%= erb :_retweet_button, locals: {cur_tweet_id: retweet.tweet_id}%></li>
+      <li><%= Tweet.find(retweet.tweet_id).post %>  <%= erb :_retweet_button, locals: {cur_tweet_id: retweet.tweet_id}%></li>
     <% end %>
   </ul>
 

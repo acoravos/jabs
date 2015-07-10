@@ -1,8 +1,8 @@
-User.create(username: "bik", password: "hello")
-User.create(username: "john", password: "hello")
-User.create(username: "sung", password: "hello")
-User.create(username: "andrea", password: "hello")
-User.create(username: "ian", password: "hello")
+User.create(username: "bik", password: "hello", email: "bikram.virk@gmail.com")
+User.create(username: "john", password: "hello", email: "hessjohnt@gmail.com")
+User.create(username: "sung", password: "hello", email: "sbchoi86@gmail.com")
+User.create(username: "andrea", password: "hello", email: "acoravos@gmail.com")
+User.create(username: "ian", password: "hello", email: "ianemailaddress@gmail.com")
 
 # (user_id: 1)Bik's post
 Tweet.create(user_id: 1, post: "Bik's first tweet!")
