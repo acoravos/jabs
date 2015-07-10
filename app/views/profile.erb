@@ -7,10 +7,18 @@
     This shouldn't happen
   <% else %>
 
-    <i>Hello, <%= session[:current_username] %></i><br><br>
-    This is the profile page of <%= session[:desired_profile] %>.
-  <% end %>
-</div>
+    <i>Hello, <%= session[:current_username] %></i>
+
+    <br>
+    <br>
+    <br>
+    This is the profile page of <%= session[:desired_profile] %>
+
+    <div class="tweet-button">
+      <form action="/user/newtweet" method="GET">
+        <input type="submit" value="New Jab">
+      </form>
+    </div>
 
 <div class="div-follow">
   <% if is_following? %>
