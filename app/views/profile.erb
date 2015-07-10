@@ -12,7 +12,13 @@
     <br>
     <br>
     <br>
-    This is the profile page of <%= session[:desired_profile] %>.
+    This is the profile page of <%= session[:desired_profile] %>
+
+    <div class="tweet-button">
+      <form action="/user/newtweet" method="GET">
+        <input type="submit" value="New Jab">
+      </form>
+    </div>
 
     <%= erb :_tweets, locals: {current_user: @desired_user}%>
 
