@@ -84,6 +84,7 @@ get '/user/:id' do
   @desired_user = User.find(params[:id])
   session[:desired_profile] = @desired_user.username
   session[:desired_id] = @desired_user.id
+  is_following?
   erb :profile
 end
 
@@ -92,16 +93,13 @@ end
 
 #--------------------follow------------------------
 
-#OPTION TWO
-post "/follow" do
+get "/follow/:leader/:follower" do
   Following.create(leader_id: params[:leader], follower_id: params[:follower])
   redirect "/user/#{params[:leader]}"
 end
 
-#OPTION ONE
-# get "/follow/:leader/:follower" do
-#   @relationship = Following.create(leader_id: params[:leader], follower_id: params[:follower])
-#   p @relationship
-#   redirect "/user/#{params[:leader]}"
-# end
-
+#--------------------unfollow------------------------
+get "/unfollow/:leader/:follower" do
+  Following.destroy_all(leader_id: params[:leader], follower_id: params[:follower])
+  redirect "/user/#{params[:leader]}"
+end
