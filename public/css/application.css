@@ -9,7 +9,7 @@ th {
 }
 
 body {
-  background-image: url("wallpaper-1.jpg")
+    background-color: #0099FF;
 }
 
 .div-h1 {
@@ -39,7 +39,9 @@ body {
 }
 
 #search {
-
+  position: relative;
+  top: 15px;
+  left: 15px;
 }
 
 
