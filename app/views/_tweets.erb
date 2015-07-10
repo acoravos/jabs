@@ -1,0 +1,11 @@
+<div class="tweets">
+
+  Your <%= current_user.tweets.count %> Tweets: </br>
+
+  <ul>
+  <% current_user.tweets.each do |tweet| %>
+    <li><%= tweet.post %></li>
+  <% end %>
+  </ul>
+
+</div>
