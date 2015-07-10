@@ -4,24 +4,47 @@
   padding: 0px 20px 20px 20px;
   border: 1px dotted black;
 }
+
 th {
   text-align: left;
 }
 
 body {
-    background-color: #0099FF;
+    background-color: white;
 }
 
 .div-h1 {
-  color: rgba(255, 255, 255, 0.8);
+  color: #00CCFF;
+}
+
+.div-h1 {
+  position: absolute;
+  top: 3%;
+  left: 3%;
+}
+
+.div-h1 {
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  font-size: 20px
 }
 
 .div-h2 {
-  color: white;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  font-size: 30px;
+}
+
+.div-h2 {
+  color: #00CCFF;
+}
+
+.div-h2 {
+  position: absolute;
+  top: 7%;
+  right: 10%;
 }
 
 .content {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: #00CCFF;
 }
 
 /*-------------------------.content position-------------------------*/
@@ -31,17 +54,123 @@ body {
   left: 5%;
 }
 
-/*-------------------------.content size-----------------------------*/
 .content {
   width: 90%;
   height: 80%;
   border-radius: 25px;
 }
 
+/*-------------------------search -----------------------------*/
 #search {
   position: relative;
   top: 15px;
   left: 15px;
 }
+
+#search {
+  color: white;
+}
+
+/*-------------------------profile-button-----------------------------*/
+ /*profile*/
+#div-profile-button {
+  border: 2px solid white;
+  border-radius: 25px;
+}
+
+#div-profile-button {
+  position: relative;
+  top: 40px;
+  left: 10px;
+}
+
+#div-profile-button {
+  width: 150px;
+  height: 30px;
+}
+
+#div-profile-button {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+#div-profile-button a {
+  position: relative;
+  left: 20px;
+  top: 20%;
+}
+
+#div-profile-button a {
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  text-decoration: none;
+}
+
+/*my profile*/
+#div-my-profile {
+  border: 2px solid white;
+  border-radius: 25px;
+}
+
+#div-my-profile {
+  position: relative;
+  top: 60px;
+  left: 10px;
+}
+
+#div-my-profile {
+  width: 150px;
+  height: 30px;
+}
+
+#div-my-profile {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+
+#div-my-profile a {
+  position: relative;
+  left: 20px;
+  top: 20%;
+}
+
+#div-my-profile a {
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  text-decoration: none;
+}
+
+/*logout*/
+#div-logout {
+  border: 2px solid white;
+  border-radius: 25px;
+}
+
+#div-logout {
+ position: relative;
+  top: 80px;
+  left: 10px;
+}
+
+#div-logout {
+  width: 150px;
+  height: 30px;
+}
+
+#div-logout {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+#div-logout a {
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  text-decoration: none;
+}
+
+#div-logout a {
+  position: relative;
+  left: 45px;
+  top: 20%;
+}
+
+
+
+
 
 

@@ -34,7 +34,7 @@
 </div><br><br>
 
 <div class="div-followlist">
-  <b>Who I Follow</b>
+  <b>who <%= session[:desired_profile] %> follows</b>
   <% @list_of_leaders = User.find(session[:desired_id]).leaders %>
   <% @list_of_leaders.each do |ldr| %>
   <ul>
@@ -42,7 +42,7 @@
   </ul>
   <% end %><br>
 
-  <b>Who Follows Me</b>
+  <b>who follows <%= session[:desired_profile] %></b>
   <% @list_of_followers = User.find(session[:desired_id]).followers %>
   <% @list_of_followers.each do |flwr| %>
   <ul>

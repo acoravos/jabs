@@ -28,19 +28,21 @@
      <input type="text" name="desired_user">
      <input type="submit" value="Search">
   </form>
+
+  <div id="div-profile-button">
+     <a href="/users">See all profiles</a> </br> </br>
+  </div>
+
+  <div id="div-my-profile">
+     <a href="/user/<%=session[:current_user_id]%>">See my profile</a> </br> </br>
+  </div>
+
+  <div id="div-logout">
+      <a href="/logout">Log out</a> </br> </br>
+  </div>
 </div>
 
-<div class="div-profile-button">
-   <a href="/users">See all profiles</a> </br> </br>
-</div>
 
-<div class="div-my-profile">
-   <a href="/user/<%=session[:current_user_id]%>">See my profile</a> </br> </br>
-</div>
-
-<div class="div-logout">
-    <a href="/logout">Log out</a> </br> </br>
-</div>
 
 <% end %>
 
