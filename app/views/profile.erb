@@ -8,6 +8,10 @@
     <% else %>
 
     <i>Hello, <%= session[:current_username] %></i>
+
+    <br>
+    <br>
+    <br>
     This is the profile page of <%= session[:desired_profile] %>.
 
     <%= erb :_tweets, locals: {current_user: @desired_user}%>
@@ -17,8 +21,22 @@
   <% end %>
 </div>
 
+<!-- #OPTION ONE -->
+<div class="followers">
+  <a href="/follow/<%=session[:desired_id]%>/<%=session[:current_user_id]%>">follow</a>
+</div>
+
+<!-- #OPTION TWO -->
+<div class="followers">
+    <form id="follow" action="/follow" method="POST">
+    <input type="hidden" name="leader" value=<%=session[:desired_id]%>></br>
+    <input type="hidden" name="follower" value=<%=session[:current_user_id]%>></br>
+    <input type="submit" value="Follow">
+  </form>
+</div>
+
+<br>
+
 <div class="div-home">
   <a href="/users">back</a>
 </div>
-
-
