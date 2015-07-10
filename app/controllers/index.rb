@@ -64,3 +64,8 @@ get '/user/:id' do
   session[:desired_profile] = @desired_user.username
   erb :profile
 end
+
+
+
+
+

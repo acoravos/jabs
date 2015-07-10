@@ -9,6 +9,11 @@
 
     <i>Hello, <%= session[:current_username] %></i>
     This is the profile page of <%= session[:desired_profile] %>.
+
+    <%= erb :_tweets, locals: {current_user: @desired_user}%>
+
+    <%= erb :_retweets, locals: {current_user: @desired_user}%>
+
   <% end %>
 </div>
 

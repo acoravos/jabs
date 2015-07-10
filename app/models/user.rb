@@ -7,11 +7,12 @@ class User < ActiveRecord::Base
   #original user-tweet relationship
   has_many :tweets
 
-  #retweet join table
+  #retweet one-to-many table
   has_many :retweets
-  has_many :tweets, through: :retweets
+  #has_many :tweets, through: :retweets
 
 
+  # Many-to-Many Followings table
   has_many :leaders, foreign_key: "follower_id", class_name: "Following"
   has_many :leads, through: :leaders
 
