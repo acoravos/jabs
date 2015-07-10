@@ -1,0 +1,6 @@
+<% if session[:current_user_id] != session[:desired_id] %>
+  <% session[:retweet_id] = cur_tweet_id %>
+  <form action='/user/retweet' method='post'>
+    <input type='submit' value='Retweet'>
+  </form>
+<% end %>

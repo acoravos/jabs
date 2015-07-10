@@ -58,6 +58,27 @@ get '/user_not_found' do
   erb :user_not_found
 end
 
+#--------------------new tweet------------------------
+
+get '/user/newtweet' do
+  erb :newtweet
+end
+
+post '/user/newtweet' do
+  Tweet.create(user_id: session[:desired_id], post: params[:post])
+  redirect "/user/#{session[:current_user_id]}"
+end
+
+#--------------------Retweet------------------------
+
+post '/user/retweet' do
+  Retweet.create(user_id: session[:current_user_id], tweet_id: session[:retweet_id])
+  session[:retweet_id] = nil
+  redirect "/user/#{session[:current_user_id]}"
+end
+
+
+
 #--------------------profile------------------------
 get '/user/:id' do
   @desired_user = User.find(params[:id])
@@ -66,12 +87,8 @@ get '/user/:id' do
   erb :profile
 end
 
-#--------------------new tweet------------------------
 
-get 'user/newtweet' do
 
-  erb :newtweet
-end
 
 #--------------------follow------------------------
 
