@@ -2,27 +2,21 @@
   <h1>Welcome to JABS!</h1>
 </div>
 
-<div class="div-content">
+<div class="div-h2">
+  Hello, <%= session[:current_username] %>
+  <img src="<%=User.find(session[:current_user_id]).gravatar_url%>">
+</div>
+
+<div class="content">
   <% if session[:current_username] == nil %>
     This shouldn't happen
   <% else %>
 
-    <i>Hello, <%= session[:current_username] %></i>
+  <p> This is the profile page of <%= session[:desired_profile] %> <img src="<%=User.find(session[:desired_id]).gravatar_url%>"> </p>
 
-    <img src="<%=User.find(session[:current_user_id]).gravatar_url%>">
-
-    <br>
-    <br>
-    <br>
-    This is the profile page of <%= session[:desired_profile] %> <img src="<%=User.find(session[:desired_id]).gravatar_url%>">
-    <br>
-
-    <div class="tweet-button">
-      <form action="/user/newtweet" method="GET">
-        <input type="submit" value="New Jab">
-      </form>
-    </div>
-
+  <form action="/user/newtweet" method="GET">
+    <input type="submit" value="New Jab">
+  </form>
   <% end %>
 
 <div class="div-follow">
@@ -36,10 +30,10 @@
 
   <% end %>
 
-</div><br><br>
+</div>
 
 <div class="div-followlist">
-  <b>Who I Follow</b>
+  <b>who <%= session[:desired_profile] %> follows</b>
   <% @list_of_leaders = User.find(session[:desired_id]).leaders %>
   <% @list_of_leaders.each do |ldr| %>
   <ul>
@@ -47,7 +41,7 @@
   </ul>
   <% end %><br>
 
-  <b>Who Follows Me</b>
+  <b>who follows <%= session[:desired_profile] %></b>
   <% @list_of_followers = User.find(session[:desired_id]).followers %>
   <% @list_of_followers.each do |flwr| %>
   <ul>
@@ -55,7 +49,7 @@
   </ul>
   <% end %><br>
 
-</div><br><br>
+</div>
 
 <div class="div-tweets">
     <%= erb :_tweets, locals: {current_user: @desired_user}%>

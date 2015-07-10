@@ -5,7 +5,7 @@
 <div class="content">
   <ul>
     <% @users.each do |usr| %>
-      <li><a href="/user/<%=usr.id%>"> <%= usr.username %> <img src="<%=User.find(usr.id).gravatar_url%>"> </a></li>
+      <li><a href="/user/<%=usr.id%>"> <img src="<%=User.find(usr.id).gravatar_url%>"> <%= usr.username %>  </a></li>
     <% end %>
   </ul>
 </div>
