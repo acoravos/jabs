@@ -60,6 +60,27 @@ body {
   border-radius: 25px;
 }
 
+.content i {
+  position: absolute;
+  top: 10px;
+  right: 10%;
+}
+
+.content p {
+  position: relative;
+  left: 10px;
+  top: 10px;
+}
+
+.content p {
+  color: white;
+}
+
+.content p {
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  font-size: 20px;
+}
+
 /*-------------------------search -----------------------------*/
 #search {
   position: relative;
@@ -169,8 +190,29 @@ body {
   top: 20%;
 }
 
+/*-------------------------gravatar---------------------------------*/
 
+img {
+  width: 60px;
+  height: 60px;
+  border-radius: 150px;
+  -webkit-border-radius: 150px;
+  -moz-border-radius: 150px;
+  /*background: url(http://link-to-your/image.jpg) no-repeat;*/
+  }
 
+/*-------------------------tweet-button-----------------------------*/
+
+.content form {
+  position: absolute;
+  right: 50px;
+  margin-top: 10px;
+}
+
+.follow a {
+  color: white;
+  text-decoration: none;
+}
 
 
 
