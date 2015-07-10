@@ -69,21 +69,13 @@ end
 
 #--------------------follow------------------------
 
-#OPTION TWO
-# post "/follow" do
-#   relation = Following.create(leader_id: params[:leader], follower_id: params[:follower])
-#   @relation_follower_id = relation.follower_id
-#   #p @relation_follower_id
-#   #p session[:current_user_id]
-#   @following = Following.find_by(leader_id: params[:id])
-#   p @following
-#   p params[:id]
-#   redirect "/user/#{params[:leader]}"
-# end
-
 get "/follow/:leader/:follower" do
-  @relationship = Following.create(leader_id: params[:leader], follower_id: params[:follower])
-  p @relationship
+  Following.create(leader_id: params[:leader], follower_id: params[:follower])
   redirect "/user/#{params[:leader]}"
 end
 
+#--------------------unfollow------------------------
+get "/unfollow/:leader/:follower" do
+  Following.destroy_all(leader_id: params[:leader], follower_id: params[:follower])
+  redirect "/user/#{params[:leader]}"
+end

@@ -5,50 +5,52 @@
 <div class="div-content">
   <% if session[:current_username] == nil %>
     This shouldn't happen
-    <% else %>
+  <% else %>
 
-    <i>Hello, <%= session[:current_username] %></i>
-
-    <br>
-    <br>
-    <br>
+    <i>Hello, <%= session[:current_username] %></i><br><br>
     This is the profile page of <%= session[:desired_profile] %>.
-
-    <%= erb :_tweets, locals: {current_user: @desired_user}%>
-
-    <%= erb :_retweets, locals: {current_user: @desired_user}%>
-
   <% end %>
-</div>
-
-<!-- #OPTION ONE -->
-<div class="followers">
-  <a href="/follow/<%=session[:desired_id]%>/<%=session[:current_user_id]%>">follow</a>
-</div>
-
-
-
-<br>
-
-<div class="div-home">
-  <a href="/users">back</a>
 </div>
 
 <div class="div-follow">
   <% if is_following? %>
-  <p> unfollow </p>
+
+    <a href="/unfollow/<%=session[:desired_id]%>/<%=session[:current_user_id]%>">unfollow</a>
+
   <% else %>
-  <p> follow </p>
+
+    <a href="/follow/<%=session[:desired_id]%>/<%=session[:current_user_id]%>">follow</a>
+
   <% end %>
 
-</div>
-<!-- #OPTION TWO -->
-<div class="followers">
-    <form id="follow" action="/follow" method="POST">
-    <input type="hidden" name="leader" value=<%=session[:desired_id]%>></br>
-    <input type="hidden" name="follower" value=<%=session[:current_user_id]%>></br>
-    <input type="submit" value="Follow">
-  </form>
-</div>
+</div><br><br>
 
-end cones
+<div class="div-followlist">
+  <b>Who I Follow</b>
+  <% @list_of_leaders = User.find(session[:desired_id]).leaders %>
+  <% @list_of_leaders.each do |ldr| %>
+  <ul>
+    <li><%= User.find(ldr.id).username %></li>
+  </ul>
+  <% end %><br>
+
+  <b>Who Follows Me</b>
+  <% @list_of_followers = User.find(session[:desired_id]).followers %>
+  <% @list_of_followers.each do |flwr| %>
+  <ul>
+    <li><%= User.find(flwr.id).username %></li>
+  </ul>
+  <% end %><br>
+
+</div><br><br>
+
+
+<div class="div-tweets">
+    <%= erb :_tweets, locals: {current_user: @desired_user}%>
+
+    <%= erb :_retweets, locals: {current_user: @desired_user}%>
+</div><br>
+
+<div class="div-home">
+  <a href="/users">back</a>
+</div>

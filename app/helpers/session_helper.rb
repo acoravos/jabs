@@ -11,4 +11,8 @@ helpers do
     p following
   end
 
+  def followers
+
+  end
+
 end
