@@ -65,6 +65,13 @@ get '/user/:id' do
   erb :profile
 end
 
+#--------------------new tweet------------------------
+
+get 'user/newtweet' do
+
+  erb :newtweet
+end
+
 
 
 
