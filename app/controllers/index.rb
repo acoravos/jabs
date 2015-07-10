@@ -71,8 +71,8 @@ end
 
 #--------------------Retweet------------------------
 
-post '/user/retweet' do
-  Retweet.create(user_id: session[:current_user_id], tweet_id: session[:retweet_id])
+post '/user/retweet/:cur_tweet_id' do
+  Retweet.create(user_id: session[:current_user_id], tweet_id: params[:cur_tweet_id])
   session[:retweet_id] = nil
   redirect "/user/#{session[:current_user_id]}"
 end
