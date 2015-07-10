@@ -26,6 +26,22 @@
   <a href="/follow/<%=session[:desired_id]%>/<%=session[:current_user_id]%>">follow</a>
 </div>
 
+
+
+<br>
+
+<div class="div-home">
+  <a href="/users">back</a>
+</div>
+
+<div class="div-follow">
+  <% if is_following? %>
+  <p> unfollow </p>
+  <% else %>
+  <p> follow </p>
+  <% end %>
+
+</div>
 <!-- #OPTION TWO -->
 <div class="followers">
     <form id="follow" action="/follow" method="POST">
@@ -35,8 +51,4 @@
   </form>
 </div>
 
-<br>
-
-<div class="div-home">
-  <a href="/users">back</a>
-</div>
+end cones
