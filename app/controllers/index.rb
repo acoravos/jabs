@@ -62,10 +62,22 @@ end
 get '/user/:id' do
   @desired_user = User.find(params[:id])
   session[:desired_profile] = @desired_user.username
+  session[:desired_id] = @desired_user.id
   erb :profile
 end
 
+#--------------------follow------------------------
 
+#OPTION TWO
+post "/follow" do
+  Following.create(leader_id: params[:leader], follower_id: params[:follower])
+  redirect "/user/#{params[:leader]}"
+end
 
-
+#OPTION ONE
+# get "/follow/:leader/:follower" do
+#   @relationship = Following.create(leader_id: params[:leader], follower_id: params[:follower])
+#   p @relationship
+#   redirect "/user/#{params[:leader]}"
+# end
 
